@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles_user.css'%}">
+    <link rel="stylesheet" href="{% static 'css/styles-app-tables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+</head>
+<body>
+    <header>
+        <h1>VOCABULARIO EFECTIVO</h1>
+        <nav class="container-menu">
+            <ul>
+                {% if user.email %}           
+                    <!-- <li><a href="{% url 'user_app:user' %}">Usuario</a></li> -->
+                    <li><a href="{% url 'tables_app:title' action_table='set_table' %}">Nueva Tabla</a></li>
+                    <li><a href="{% url 'tables_app:table_collection' %}">Mis tablas</a></li>
+                    <li><a href="{% url 'tables_app:other_tables' %}">Otras tablas</a></li>
+                {% else %}
+                    <li><a href="{% url 'user_app:log_in' %}">Iniciar Sesión</a></li>
+                    <li><a href="{% url 'user_app:register' %}">Registrarse</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+
+        {% if user.email %}
+            <div class="user-control">
+                <img src="{% static 'img/user2.png' %}" alt="">
+
+                <ul>
+                    <li class="logout"><a href="{% url 'user_app:logout' %}">Cerrar sesión</a></li>
+                </ul>
+        
+            </div>
+        {% endif %}
+    </header>
+
+    <section class="main-container">
+       
+    
+        <div class="container-tables">
+            <div class="subcontainer-tables">
+                {% block main_content %}
+
+                {% endblock %}
+            </div>
+            
+        </div>
+    </section>
+</body>
+</html>

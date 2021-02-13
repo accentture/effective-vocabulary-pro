@@ -1,0 +1,50 @@
+/* responsive */
+@media (max-width: 972px) {
+  header {
+    height: auto;
+    grid-template-columns: 9fr 9fr 1fr;
+    grid-template-rows: 1fr 0.25fr;
+
+    grid-template-areas:
+      "header header usericon"
+      "navbar navbar navbar";
+  }
+  h1 {
+    grid-area: header;
+  }
+  nav.container-menu {
+    background-color: rgb(54, 52, 52);
+    grid-area: navbar;
+  }
+  div.user-control {
+    grid-area: usericon;
+  }
+}
+@media (max-width: 561px) {
+  header {
+    grid-template-rows: 77px auto;
+  }
+  nav.container-menu ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
+  nav.container-menu ul li {
+    margin: 0 auto;
+  }
+}
+@media (max-width: 506px) {
+  header h1 {
+    font-size: 5.5vw;
+  }
+  .main-container {
+    grid-template-columns: 100%;
+  }
+  .main-container nav.container-menu {
+    height: 149px;
+  }
+  .main-container nav.container-menu ul li {
+    margin: 0 auto;
+    margin-top: 5px;
+  }
+}

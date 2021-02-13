@@ -1,0 +1,33 @@
+{% extends 'table/main menu.html' %}
+
+
+{% block content_table %}
+    <!-- <form action="{ url 'table' }{{box}}/{{user_id}}" method="POST"> : other way to pass params -->
+
+    <div class="table-container">
+        {% include 'includes/description_table.html' %}
+
+        <br>
+        <p>=== Ejemplos ===</p>
+        <ul class="description example">
+            <li>Debris</li>
+            <li>Escombros</li>
+            <li>El <strong style="color: #8181de;">Dennis</strong> (mi amigo) traje de gala un traje hecho con <strong style="color: #8181de;">escombros</strong> (la nueva moda).</li>
+        </ul>
+
+        <ul class="description example">
+            <li>Burning</li>
+            <li>Ardiente</li>
+            <li>Armin Van <em style="color: yellow;">Buuren</em> está <em style="color: yellow;">ardiendo</em> en fuego cuando mezcla música (pero continúa vivo).</li>
+        </ul>
+        <br><br>
+
+        {% if owner_table == user.id %}
+
+            <p>=== Crea el tuyo ===</p>
+            {% include 'includes/form set vocabulary.html' %}
+
+        {% endif %}
+    </div>
+    
+{% endblock %}

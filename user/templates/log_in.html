@@ -1,0 +1,36 @@
+{% extends 'layouts/layout.html' %}
+{% load static %}
+
+{% block main_content %}
+    <link rel="stylesheet" href="{% static 'css/styles_user.css'%}">
+
+
+    
+    <div class="mask">
+        <form class="form form-login" action="{% url 'user_app:log_in' %}" method="POST">
+
+            {% csrf_token %}
+
+            <div>
+                <label for="username"></label>
+                <input type="text" name="username" placeholder="Nombre de usuario">
+            </div>
+            
+            <div>
+                <label for="password"></label>
+                <input type="password" name="password" placeholder="Contraseña">
+            </div>
+
+            <input type="submit" value="Iniciar sesión">
+        </form>
+
+        <div class="button-register">
+            <button><a href="{% url 'user_app:register' %}">Crear cuenta nueva</a></button>
+        </div>
+    </div>
+
+    
+    
+{% endblock %}
+
+

@@ -1,0 +1,46 @@
+{% extends 'table/main menu.html' %}
+
+{% block content_table %}
+    <div class="table-container">
+
+        <!-- a token will be added to protect the url -->
+        
+        <form action="GET" class="form-search">
+            {% csrf_token %}
+            <input type="text" name="kword" placeholder="Buscar palabra en inglés de esta tabla" class="search-field">
+
+            <button type="submit" class="search-button">Buscar</button>
+        </form>
+
+
+        {% include 'includes/description_table.html' %}
+        
+        <!-- after to use ListView, to iterate the elements use object_list -->
+        <!-- {{object_list}} -->
+
+        {% if word_collection|length > 0 %}
+            {% for word in word_collection %}
+                <div class="box_word">
+                    <ul class="word_list">
+                        <li>{{word.english_word}}</li>
+                        <li>{{word.spanish_word}}</li>
+                        <li>{{word.inverosimil_relation|safe}}</li>
+                    </ul>
+                    
+                    {% if user.id == owner_table %}
+                        <div class="button_word">
+                            <div class="update_word"><a href="{% url 'tables_app:update_vocabulary' pk=word.id %}">Actualizar</a></div>
+                            <div class="delete_word"><a href="{% url 'tables_app:delete_vocabulary' pk=word.id %}">Borrar</a></div>
+                        </div>
+                    {% endif %}
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+            <p class="without-words-message">No hay palabras disponibles para esta tabla</p>
+        {% endif %}
+
+    </div>
+
+{% endblock %}

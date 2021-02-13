@@ -1,0 +1,13 @@
+{% extends 'layouts/layout.html' %}
+{% load static %}
+{% block main_content %}
+    
+    {% if action_table == 'set_table' %}
+        {% include 'includes/form set table.html' %}
+        
+    {% else %}
+    
+        {% include 'includes/form update table.html' %}
+    {% endif %}
+
+{% endblock %}

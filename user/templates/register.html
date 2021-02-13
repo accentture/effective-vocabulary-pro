@@ -1,0 +1,23 @@
+{% extends 'layouts/layout.html' %}
+{% load static %}
+
+{% block main_content %}
+    
+    <div class="mask">
+        <form class="form form-register" action="" method="POST" >
+            {% csrf_token %}
+    
+            {% for field in user_form %}
+                <label for="">{{field.label}}</label> 
+                {{field}}
+
+                {% if field.id_for_label == 'id_last_name' %}
+                    {{user_profile_form}}
+                {% endif %}
+            {% endfor %}
+    
+            <input type="submit" value="Iniciar sesión">
+        </form>
+    </div>
+    
+{% endblock %}

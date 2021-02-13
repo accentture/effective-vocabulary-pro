@@ -1,0 +1,10 @@
+<form class="form-of-words" action="" method="POST">
+    {{ form.media }}
+    {{ form.as_p }}
+    
+    <div class="button">
+        <input type="submit" value="Actualizar">
+    </div>
+
+    <span>{% csrf_token %}</span>
+</form>

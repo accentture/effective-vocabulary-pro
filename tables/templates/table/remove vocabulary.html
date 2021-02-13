@@ -1,0 +1,13 @@
+{% extends 'layouts/layout.html' %}
+
+{% block main_content %}
+    
+    <h3 class="remove-warning">¿Estás seguro de eliminar esta relación inverosimil de tu tabla?</h3>
+    <form class="form-table" action="" method="POST">
+        {% csrf_token %}
+
+        <input type="submit" value="Confirmar">
+
+    </form>
+
+{% endblock %}

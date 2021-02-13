@@ -1,0 +1,404 @@
+/* ================================================== form title */
+.title-table {
+  height: 60px;
+  line-height: 60px;
+  margin-bottom: 20px;
+}
+h2.action-table {
+  color: #14c714;
+  text-align: center;
+  margin-top: 10px;
+}
+.form-table {
+  width: 654px;
+  margin: 0 auto;
+  text-align: center;
+}
+.form-table p {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.form-table p label {
+  text-align: right;
+}
+.form-table p input {
+  width: 300px;
+  height: 27px;
+}
+.form-table input[type="submit"] {
+  width: 303px;
+  height: 35px;
+  background-color: green;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+.form-table input[type="submit"]:hover {
+  background-color: rgb(20, 160, 20);
+}
+/* ================================================== menu of table */
+
+ul.menu-vocabulary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  margin-bottom: 10px;
+}
+ul.menu-vocabulary li {
+  min-width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background-color: #ba0000;
+  border-radius: 5px;
+  list-style: none;
+  text-align: center;
+}
+ul.menu-vocabulary li:hover {
+  background-color: rgb(207, 52, 52);
+}
+ul.menu-vocabulary li:active {
+  background-color: #17157c;
+}
+ul.menu-vocabulary li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+/* ================================================== create vocabulary */
+.table-container {
+  padding: 10px;
+}
+.table-container ul li {
+  list-style: none;
+}
+.table-container {
+  width: 98.3%;
+  min-height: 80px;
+  background-color: #1a1818;
+}
+/* field description of table */
+.table-container ul {
+  display: grid;
+  height: 30px;
+  line-height: 30px;
+  grid-template-columns: 14% 14% 67%;
+  grid-gap: 10px;
+  height: auto;
+}
+.table-container ul.description,
+ul.example {
+  width: 100%;
+}
+ul.example {
+  overflow-wrap: break-word;
+}
+.description-table {
+  font-size: 20px;
+  color: #14c7ae;
+  font-weight: bold;
+}
+form.form-of-words {
+  display: grid;
+  grid-template-columns: 0.8fr 0.8fr 0fr 3fr 0fr 1fr;
+  grid-gap: 10px;
+}
+
+/* textarea ckeditor */
+div#cke_id_inverosimil_relation {
+  width: auto;
+}
+form.form-of-words p input[type="text"] {
+  width: 100%;
+  height: 24px;
+  background-color: #e0e0ad;
+}
+.button {
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+}
+.button input[type="submit"] {
+  width: 100%;
+  height: 100%;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+.button input[type="submit"]:hover {
+  background-color: rgb(20, 160, 20);
+}
+/* ================================================== word list */
+.form-search {
+  width: 89.1%;
+  display: grid;
+  grid-template-columns: 8fr 1fr 1fr;
+}
+.form-search input.search-field {
+  padding: 7px;
+  background-color: #e0e0ad;
+}
+.form-search button.search-button {
+  padding: 7px;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+div.box_word {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-gap: 5px;
+}
+div.box_word .button_word {
+  width: 100%;
+  height: 29px;
+  line-height: 29px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3px;
+}
+div.box_word .button_word a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  text-align: center;
+}
+div.box_word .delete_word {
+  background-color: red;
+}
+div.box_word .update_word {
+  background-color: green;
+}
+ul.word_list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 17% 17% 63%;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  height: auto;
+}
+ul.word_list:last-child {
+  border-bottom: 1px solid;
+}
+ul.word_list li {
+  text-align: left;
+  overflow-wrap: break-word;
+}
+ul.word_list li strong {
+  color: #6666e4;
+  font-size: 18px;
+}
+ul.word_list li p {
+  overflow-wrap: break-word;
+}
+ul.word_list li em {
+  color: yellow;
+  font-size: 18px;
+}
+p.without-words-message {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 20px;
+  font-style: oblique;
+}
+/* ================================================== table collection */
+h2.description-tables {
+  margin-top: 15px;
+}
+
+ul.table-collection {
+  margin-top: 15px;
+}
+ul.table-collection li {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+
+  border-radius: 5px;
+  list-style: none;
+  margin-bottom: 5px;
+  display: grid;
+  grid-template-columns: 5fr 1fr 1fr;
+  grid-gap: 5px;
+}
+
+ul.table-collection li a {
+  color: white;
+  text-decoration: none;
+}
+button.update-table {
+  width: 210px;
+  height: 33px;
+  margin: 0 auto;
+  margin-top: 10px;
+  background-color: green;
+  cursor: pointer;
+}
+button.update-table:hover {
+  background-color: rgb(20, 160, 20);
+}
+button.update-table a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+div.option-table {
+  border-radius: 3px;
+}
+div.check {
+  background-color: #121b46;
+}
+div.check:hover {
+  background-color: #1a2972;
+}
+div.update {
+  background-color: #495a04;
+}
+div.update:hover {
+  background-color: #758f0e;
+}
+div.delete {
+  background-color: #860b0b;
+}
+div.delete:hover {
+  background-color: #b41515;
+}
+div.check a,
+div.update a,
+div.delete a {
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+}
+.remove-warning {
+  text-align: center;
+  margin: 10px;
+}
+/* ========================================== table collection other users */
+ul.other-tables-description {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  background-color: #141447;
+  color: white;
+  margin-top: 15px;
+}
+ul.other-tables-description li {
+  list-style: none;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+ul.list-other-tables li {
+  height: 30px;
+  line-height: 30px;
+  margin-top: 5px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 5px;
+  justify-content: space-around;
+  border-radius: 5px;
+  color: white;
+}
+ul.list-other-tables li div {
+  display: block;
+  text-align: center;
+  background-color: #034e21;
+  border-radius: 4px;
+}
+ul.list-other-tables li div:first-child:hover {
+  display: block;
+  text-align: center;
+  background-color: #097233;
+}
+ul.list-other-tables li div a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+/* pagination */
+.pagination {
+  text-align: center;
+  margin-top: 18px;
+}
+.pagination a {
+  color: rgb(7, 185, 185);
+  margin-right: 15px;
+}
+/* ========================================== table collection other users */
+.assets p a {
+  color: rgb(7, 185, 185);
+}
+/* responsive */
+@media (max-width: 1080px) {
+  div.box_word .button_word {
+    height: 58px;
+
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 979px) {
+  ul.menu-vocabulary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .table-container ul li {
+    height: auto;
+  }
+}
+@media (max-width: 972px) {
+  .table-container ul.description {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 962px) {
+  .form-table {
+    margin: 0 auto;
+    display: grid;
+  }
+  .form-table p {
+    width: 70%;
+    justify-content: normal;
+    display: grid;
+    margin: 0 auto;
+  }
+  .form-table p label {
+    width: 100%;
+    text-align: left;
+  }
+  .form-table p input {
+    width: 100%;
+  }
+  .form-table {
+    width: 90%;
+  }
+  .form-table input[type="submit"] {
+    width: 71%;
+    float: none;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 701px) {
+  ul.word_list {
+    grid-template-columns: 17% 17% 60%;
+  }
+}
+@media (max-width: 616px) {
+  ul.list-other-tables li {
+    height: auto;
+  }
+}
+@media (max-width: 561px) {
+  ul.menu-vocabulary {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 506px) {
+  .main-container div.container-tables {
+    padding-bottom: 18px;
+  }
+}

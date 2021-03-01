@@ -1,1 +1,1 @@
-web: gunicorn effectiveVocabulary.wsgi:application --log-file -
+web: gunicorn effectiveVocabulary.wsgi --log-file -

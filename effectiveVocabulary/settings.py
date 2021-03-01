@@ -14,6 +14,9 @@ import os
 from django.urls import reverse_lazy
 from pathlib import Path
 
+#to deploy with heroku
+import django_heroku
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +30,7 @@ SECRET_KEY = 'v)w0d@&m4(^&a-r14-wch!blzyv0z@d_^+628u)czd15w&2^!u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -147,7 +150,10 @@ CKEDITOR_CONFIGS = {
 }
 
 # to upload pdf file 
-STATIC_ROOT = '/static/'
+#STATIC_ROOT = '/static/'
+#to deploy with heroku
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+django_heroku.settings(locals())
 
 
 

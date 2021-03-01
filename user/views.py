@@ -25,11 +25,13 @@ def register(request) :
         user_profile_form = UserProfileForm(request.POST)
 
         if user_form.is_valid() and user_profile_form.is_valid():
-            print('-----------------register feo-----------', user_form)
             user = user_form.save()
             user_profile_form = user_profile_form.save(commit = False)
             user_profile_form.user = user
             user_profile_form.save()
+
+            #login
+            login(request, user)
 
             return redirect('user_app:user')
 
@@ -53,7 +55,6 @@ class LoginView(View):
             password = request.POST.get('password')
 
             user = authenticate(request, username = username, password = password)
-            print('------------------login---------------------', user)
 
             if user :
                 messages.success(request, 'Bienvenido')

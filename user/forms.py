@@ -1,6 +1,12 @@
 
+#python
+import re
+
+from django.core import validators
 from django import forms
 from django.contrib.auth.models import User
+#my_validator = RegexValidator(r"[a-zA-Z]+", "Ingresa tu contraseña")
+
 
 #importing form provided by django
 from django.contrib.auth.forms import UserCreationForm
@@ -8,6 +14,27 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import UserProfile
 
 class UserForm(UserCreationForm): 
+    
+    password1 = forms.CharField(
+        label = 'Titulo',
+        required=True,
+        #setting validations
+        validators=[
+            validators.MinLengthValidator(8, 'La contraseña es demasiado corta'),
+            validators.RegexValidator('^[A-Za-z0-9ñ ]*$', 'El titulo es mal formado', 'invalid_title') 
+        ]
+    )
+
+    password2 = forms.CharField(
+        label = 'Titulo',
+        required=True,
+        #setting validations
+        validators=[
+            validators.MinLengthValidator(8, 'La contraseña es demasiado corta'),
+            validators.RegexValidator('^[A-Za-z0-9ñ ]*$', 'El titulo es mal formado', 'invalid_title') 
+        ]
+    )
+
     def __init__(self, *args, **kwargs):
         super(UserForm, self).__init__(*args, **kwargs)
         self.fields['username'].widget.attrs['placeholder'] = 'Nombre de usuario'

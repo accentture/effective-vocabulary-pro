@@ -2,7 +2,9 @@
 {% load static %}
 
 {% block main_content %}
+
     
+
     <div class="mask">
         <form class="form form-register" action="" method="POST" >
             {% csrf_token %}
@@ -15,9 +17,19 @@
                     {{user_profile_form}}
                 {% endif %}
             {% endfor %}
-    
-            <input type="submit" value="Iniciar sesión">
+
+            {% if user_form.errors %}
+            <strong class="error">
+                La contraseña debe tener como mínico 8 caracteres entre mayúsculas y minúsculas.
+            </strong>
+            {% endif %}
+            
+            <div class="box-button-submit">
+                <button type="submit" >Iniciar sesión</button>
+            </div>
         </form>
     </div>
+
+    
     
 {% endblock %}

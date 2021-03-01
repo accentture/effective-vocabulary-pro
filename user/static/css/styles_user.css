@@ -12,6 +12,7 @@
   width: 100%;
   height: 33px;
   padding: 3px;
+  border-radius: 5px;
   margin-bottom: 10px;
   border-radius: 4px;
   font-size: 15px;
@@ -31,6 +32,7 @@
   width: 100%;
   height: 33px;
   padding: 3px;
+  border-radius: 5px;
   margin-bottom: 10px;
   padding-left: 5px;
   font-size: 15px;
@@ -39,11 +41,13 @@
 
 .button-register {
   text-align: center;
+  border-radius: 5px;
 }
 .button-register button {
   width: 102.5%;
   margin: 0 auto;
   height: 44px;
+  border-radius: 5px;
   background-color: #0b063e;
   font-size: 16px;
   cursor: pointer;
@@ -59,7 +63,10 @@
 }
 
 /* =========================================================== form of login and register */
-.form input[type="submit"] {
+div.box-button-submit {
+  border-radius: 5px;
+}
+.form div.box-button-submit button {
   width: 102.5%;
   height: 44px;
   margin-top: 1px;
@@ -68,10 +75,16 @@
   color: white;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 .form input[type="submit"]:hover {
   background-color: #1baa63;
+  border-radius: 5px;
+}
+strong.error {
+  color: #d86b6b;
+  text-align: center;
 }
 /* responsive */
 @media (max-width: 960px) {

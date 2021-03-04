@@ -6,28 +6,40 @@
 
 
     
+
     <div class="mask">
+        {% if messages %}
+
+            <!-- using for loop because can exists many messages -->
+            {% for message in messages %}
+                <div class="alert alert-warning">
+                    {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+
         <form class="form form-login" action="{% url 'user_app:log_in' %}" method="POST">
 
             {% csrf_token %}
 
-            <div>
+            <div class="field">
                 <label for="username"></label>
                 <input type="text" name="username" placeholder="Nombre de usuario">
             </div>
             
-            <div>
+            <div class="field">
                 <label for="password"></label>
                 <input type="password" name="password" placeholder="Contraseña">
             </div>
 
-            <div class="box-button-submit">
-                <button type="submit" >Iniciar sesión</button>
+            <div class="box-button-submit button-start-sesion">
+                Iniciar sesión
+                <!-- <button type="submit" ></button></button> -->
             </div>
         </form>
 
         <div class="button-register">
-            <button><a href="{% url 'user_app:register' %}">Crear cuenta nueva</a></button>
+            <a href="{% url 'user_app:register' %}">Crear cuenta nueva</a>
         </div>
     </div>
 

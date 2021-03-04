@@ -10,11 +10,15 @@
             {% csrf_token %}
     
             {% for field in user_form %}
-                <label for="">{{field.label}}</label> 
-                {{field}}
+                <div class="field">
+                    <label for="">{{field.label}}</label> 
+                    {{field}}
+                </div>
 
                 {% if field.id_for_label == 'id_last_name' %}
-                    {{user_profile_form}}
+                    <div class="field">
+                        {{user_profile_form}}
+                    </div>
                 {% endif %}
             {% endfor %}
 
@@ -25,7 +29,7 @@
             {% endif %}
             
             <div class="box-button-submit">
-                <button type="submit" >Iniciar sesión</button>
+                Iniciar sesión
             </div>
         </form>
     </div>

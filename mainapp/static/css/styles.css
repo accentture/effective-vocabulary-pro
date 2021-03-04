@@ -51,8 +51,9 @@ div.user-control {
   height: 76px;
   display: grid;
   grid-template-rows: 1fr 1fr;
+  border: 2px solid red;
 }
-div.user-control:hover > ul {
+div.user-control:active > ul {
   opacity: 1;
 }
 div.user-control img {
@@ -62,7 +63,7 @@ div.user-control img {
 
 div.user-control ul {
   width: 110px;
-  opacity: 0;
+  visibility: hidden;
   transition: 300ms;
   position: relative;
   left: -30px;

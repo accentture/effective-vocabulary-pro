@@ -1,8 +1,5 @@
 from django.shortcuts import render, redirect
 
-#forms
-from user.forms import UserForm, UserProfileForm
-
 # importing View
 from django.views.generic import View, TemplateView, ListView, CreateView
 
@@ -15,6 +12,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 from django.urls import reverse_lazy
+
+#forms
+from user.forms import UserForm, UserProfileForm
 
 def register(request) :
     user_form = UserForm()
@@ -57,9 +57,11 @@ class LoginView(View):
             user = authenticate(request, username = username, password = password)
 
             if user :
-                messages.success(request, 'Bienvenido')
                 login(request, user)
                 return redirect('user_app:user')
+
+            messages.warning(request, 'No te has podido identificar correctamente')
+            return redirect('user_app:log_in')
 
 
 def user_logout(request):

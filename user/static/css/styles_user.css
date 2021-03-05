@@ -84,9 +84,11 @@ div.box-button-submit:hover {
   background-color: rgb(11, 170, 11);
 }
 
-strong.error {
-  color: #d86b6b;
-  text-align: center;
+ul.errorlist {
+  list-style-position: inside;
+}
+li.error {
+  list-style-position: outside;
 }
 .alert-warning {
   background-color: red;

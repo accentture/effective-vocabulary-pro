@@ -14,14 +14,21 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import UserProfile
 
 class UserForm(UserCreationForm): 
-    
+    email = forms.CharField(
+        required=True,
+        validators=[
+            validators.RegexValidator('^[^\s@]+@[^\s@]+\.[^\s@]{2,}$', 'Ingresa una dirección de correo válida') 
+        ]
+    )
+
     password1 = forms.CharField(
         label = 'Titulo',
         required=True,
         #setting validations
+        widget=forms.PasswordInput(),
         validators=[
-            validators.MinLengthValidator(8, 'La contraseña es demasiado corta'),
-            validators.RegexValidator('^[A-Za-z0-9ñ ]*$', 'El titulo es mal formado', 'invalid_title') 
+            validators.MinLengthValidator(8, 'La contraseña es demasiado corta. Ingresa mínimo 8 caracteres.'),
+            validators.RegexValidator('^[A-Za-z0-9ñ ]*$', 'El titulo es mal formado', 'invalid_title'),
         ]
     )
 
@@ -29,8 +36,9 @@ class UserForm(UserCreationForm):
         label = 'Titulo',
         required=True,
         #setting validations
+        widget=forms.PasswordInput(),
         validators=[
-            validators.MinLengthValidator(8, 'La contraseña es demasiado corta'),
+            validators.MinLengthValidator(8, 'La contraseña es demasiado corta. Ingresa mínimo 8 caracteres'),
             validators.RegexValidator('^[A-Za-z0-9ñ ]*$', 'El titulo es mal formado', 'invalid_title') 
         ]
     )
@@ -57,6 +65,7 @@ class UserForm(UserCreationForm):
             'first_name' : '',
             'last_name' : ''
         }
+
 
         
 

@@ -22,11 +22,14 @@
                 {% endif %}
             {% endfor %}
 
-            {% if user_form.errors %}
-            <strong class="error">
-                La contraseña debe tener como mínico 8 caracteres entre mayúsculas y minúsculas.
-            </strong>
-            {% endif %}
+            <p >
+                {% if user_form.errors.email %}
+                
+                    {{user_form.errors.email}}
+                    <li class="error">La contraseña debe tener como mínico 8 caracteres entre mayúsculas y minúsculas.</li>
+                
+                {% endif %}
+            </p>
             
             <div class="box-button-submit">
                 Iniciar sesión

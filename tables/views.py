@@ -291,7 +291,7 @@ class UpdateTable(UpdateView):
     #if an error 403 is through, it is an segurity error
     def get_success_url(self):
         project = self.object
-        return reverse_lazy('user_app:user')    
+        return reverse_lazy('tables_app:table_collection')    
 
     
 class RemoveTable(DeleteView):

@@ -51,7 +51,6 @@ div.user-control {
   height: 76px;
   display: grid;
   grid-template-rows: 1fr 1fr;
-  border: 2px solid red;
 }
 div.user-control:active > ul {
   opacity: 1;

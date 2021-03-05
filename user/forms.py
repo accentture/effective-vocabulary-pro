@@ -53,6 +53,7 @@ class UserForm(UserCreationForm):
         self.fields['password2'].widget.attrs['placeholder'] = 'Confirmar contraseña'
 
         #label password
+        self.fields['email'].label = ''
         self.fields['password1'].label = ''
         self.fields['password2'].label = ''
 

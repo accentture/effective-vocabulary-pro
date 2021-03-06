@@ -38,6 +38,14 @@ def obtain_relation_word(table_id):
     print('----------------word id-------------------', relation_word)
     return 
 
+def obtain_pdf_path(datatable):
+        pdfname = str(datatable[0].pdf_doc).split('/')
+        pdfpath = ''
+
+        if pdfname[0] != '':
+            pdfpath = datatable[0].pdf_doc.path
+
+        return pdfpath
 
 class xxxTitleTable(TemplateView) : 
     template_name = 'table/title.html'
@@ -107,10 +115,12 @@ class AccessMenuTable(TemplateView) :
         title = kwargs['title']
         data_table = self.obtainAssetsTable(table_id)
         owner_table = obtain_owner_table(table_id)
+        pdfpath = obtain_pdf_path(data_table)
 
         return render(request, self.template_name, {
             'table_id': table_id,
             'title': title,
+            'pdfpath':pdfpath,
             'pdf_doc':data_table[0].pdf_doc,
             'link':data_table[0].link,
             'owner_table':owner_table
@@ -152,7 +162,6 @@ class CreateVocabulary(CreateView):
     template_name = 'table/create vocabulary.html'
     model = Word
     form_class = WordForm
-
 
     def get_context_data(self, **kwargs):
         owner_table_id = obtain_owner_table(self.kwargs['table_id'])
@@ -238,23 +247,33 @@ class OtherTables(ListView) :
 
     # to paginate queries of database
     paginate_by = 10
-    context_object_name = 'tables'
+    context_object_name = 'tables_and_users'
+
+    def obtain_ids_of_users(self, query_tables):
+        for table in query_tables:
+            print('-------id----------',table.user_id)
+
+        return
 
     def get_queryset(self, *args, **kwargs):
-        return Table.objects.exclude(user_id = self.request.user.id)
+
+        tables = Table.objects.exclude(user_id = self.request.user.id)
+        
+        users = User.objects.filter(id__in = tables.values_list('id', flat = True))
+        query = {
+            "tables": tables,
+            #"users": User.objects.filter(id__in = tables.values_list('id', flat = True))
+        }
+        query = [tables, users]
+
+
+        return tables
+
 
 
 class AssetsTable(View):
     template_name = 'table/assets table.html'     
 
-    def obtain_pdf_path(self, datatable):
-        pdfname = str(datatable[0].pdf_doc).split('/')
-        pdfpath = ''
-
-        if pdfname[0] != '':
-            pdfpath = datatable[0].pdf_doc.path
-
-        return pdfpath
 
     def get(self, request, *args, **kwargs):
         table_id = kwargs['table_id']
@@ -262,7 +281,7 @@ class AssetsTable(View):
         datatable = Table.objects.filter(id = table_id)
         owner_table_id = obtain_owner_table(self.kwargs['table_id'])
 
-        pdfpath = self.obtain_pdf_path(datatable)
+        pdfpath = obtain_pdf_path(datatable)
 
         context = {
             'title':datatable[0].title,

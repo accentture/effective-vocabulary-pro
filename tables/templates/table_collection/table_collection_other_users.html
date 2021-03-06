@@ -6,7 +6,8 @@
     {% include 'includes/description_other_tables.html' %}
     
     <ul class="list-other-tables">
-        {% for table in tables %}
+        {% for table in tables_and_users %}
+            
             <li>
                 <div><a href="{% url 'tables_app:word_list' table_id=table.id  title=table.title %}">{{table.title|upper}}</a></div>
                 <div>{{table.user_id}}</div>

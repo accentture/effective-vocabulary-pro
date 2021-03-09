@@ -35,12 +35,12 @@ def obtain_owner_table(table_id):
 def obtain_relation_word(table_id):
     relation_word = Word.objects.filter(table_id = table_id)
 
-    print('----------------word id-------------------', relation_word)
     return 
 
 def obtain_pdf_path(datatable):
         pdfname = str(datatable[0].pdf_doc).split('/')
         pdfpath = ''
+        print('----------------- check pdf--------', pdfname)
 
         if pdfname[0] != '':
             pdfpath = datatable[0].pdf_doc.path
